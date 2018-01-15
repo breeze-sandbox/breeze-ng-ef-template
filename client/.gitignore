@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 # local files
-#local.conf.js
+local.conf.js
