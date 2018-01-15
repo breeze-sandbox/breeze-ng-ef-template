@@ -1,0 +1,254 @@
+/* assets/styles.scss */
+/* You can add global styles to this file, and also import other style files */
+
+.bg-app {
+  background-color: lightblue;
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+.pt-1 {
+  padding-top: 1rem;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.font-bold {
+  font-weight: bold;
+} 
+
+.font-normal {
+  font-weight: normal
+}
+
+.font-med {
+  font-size: 11pt;
+}
+
+.font-smallish {
+  font-size: 9pt;
+}
+
+.font-small {
+  font-size: 8pt;
+}
+
+td.cell-error {
+  border: 2px dotted red !important;
+}
+
+.fa-exclamation-triangle {
+  color: white;
+  background: red;
+  border: 1px solid red !important;
+}
+
+
+/* apply colors to app */
+@media screen {
+  body {
+    background-color: lightblue;
+  }
+}
+
+/* change card formatting for print */
+@media print {
+  .border-primary {
+    border: 0;
+  }
+  .border-primary > .card-body {
+    padding: 0;
+  }
+  .card-header {
+    background-color: transparent;
+  }
+  .card-body {
+    page-break-inside: avoid;
+  }
+  .card-columns > .card {
+    page-break-inside: avoid;
+  }
+}
+
+/* change primary button color to silver */
+.btn-primary {
+    color: #000;
+    background-color: #ddd;
+    border-top-color: #eee;
+    border-right-color: #bbb;
+    border-bottom-color: #bbb;
+    border-left-color: #eee;
+    &:hover {
+      color: #000;
+      background-color: #bbb;
+      border-color: #eee;
+      cursor: pointer;
+    }
+}
+.btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+    color: #000;
+    background-color: #ccc;
+    background-image: none;
+    border-color: #ddd;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #eee;
+    border-color: #eee;
+    color:#888
+}
+
+// Make a smaller button
+.btn-group-xs > .btn, .btn-xs {
+    padding  : .4rem .4rem;
+    font-size  : .875rem;
+    line-height  : .5;
+    border-radius : .2rem;
+}
+
+/** spacing utilities */
+
+// text-align right horizontally and center vertically, for labels
+.text-right-middle, .tr-mid {
+  text-align: right;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+// edit-block for laying out input in columns rather than rows.
+// edit-block is the outer container, inside are divs for columns, and inside that are edit-rows:
+// <div class="edit-block">
+//   <div><!-- column -->
+//     <div class="edit-row">
+//       <label>Auction Date:</label>
+//       <dx-date-box [(value)]="auction.auctionDateTime"></dx-date-box>
+//     </div>
+
+div.edit-block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  div { 
+    flex-grow: 1; 
+  }
+  div.edit-row {
+    // edit-row contains a label and input element(s)
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+
+    label {
+      margin-right: 0.5rem;
+      text-align: right;
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 40%;
+    }
+  }
+}
+
+// shift left, for positioning form input labels inside columns
+// .sl-1 {  left: 1rem; }
+// .sl-2 {  left: 2rem; }
+// .sl-3 {  left: 3rem; }
+
+
+@media (max-width: 720px) {
+  .card-columns {
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
+  }
+}
+
+@media (min-width: 720px) and (max-width: 1100px) {
+  .card-columns {
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+  }
+}
+
+@media (min-width: 1100px) {
+  .card-columns {
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
+  }
+}
+
+/* global print styles */
+
+@media screen {
+  #printSection {
+    display: none;
+  }
+  .no-screen {
+    display: none !important;
+  }
+  html, body {
+    height: 100%;
+  }
+}
+
+@media print {
+
+  @page {
+    // in chrome, forces landscape for all pages.  better to give user the choice.
+    // size: letter landscape; 
+    margin: 0.5in;
+  }
+
+  
+  #printSection,
+  #printSection * {
+    visibility: visible;
+    orphans: 8; // number of lines that must be kept together
+    widows: 8;
+  }
+  #printSection {
+    -webkit-print-color-adjust: exact;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5000;
+  }
+  .no-print, .no-print * {
+    display: none !important;
+  }
+
+  // partial fix for lower first letter problem in Bootstrap print
+  span::first-letter{
+    margin: 0 !important; 
+    padding: 0 !important;
+  }
+
+  // in order for page-break to work correctly in Chrome.
+  div:not(.modal):not(.graph-cards):not(.graph-card-1-3):not(.graph-body):not(.outer-box) {
+    position: relative !important;
+    height: inherit !important;
+    overflow: visible !important;
+  }
+
+  .card, .card-group, .card-deck, .card-body {
+    // display: flex breaks printing in FF
+    display: block !important;
+    line-height: 1.0;
+    overflow: visible;
+  }
+
+  .card-header, .card-title, .card-subtitle {
+    page-break-after: avoid;
+  }
+}

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <a class="navbar-brand" style="padding-top: 2px; padding-bottom: 2px" routerLink="/home">
+    <img src="assets/images/logo.png" height="42" width="120" [title]="'Template version ' + version" [alt]="'Template ' + version">
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul *ngIf="user" class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/reports">Reports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/setup">Setup</a>
+      </li>
+    </ul>
+
+    <div *ngIf="user" class="navbar-brand">
+      {{user.displayName}}
+    </div>
+      
+    <form class="form-inline my-2 my-lg-0">
+      
+      <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+      <span *ngIf="user" class="ml-sm-2 font-small" style="color: #eeeeee">
+        <label>{{user.displayName}}</label><span>({{user.userName}})</span>
+      </span>
+    </form>
+    <div *ngIf="user" class="navbar-nav">
+      <a class="nav-link" routerLink="/" (click)="logout()">Logout</a>
+    </div>
+  </div>
+</nav>

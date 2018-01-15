@@ -1,0 +1,11 @@
+<div *ngIf="!!user" class="card border-primary mx-3">
+  <div class="card-header text-center">
+    <h4 class="card-title">Home</h4>
+    <p class="card-text">Welcome.</p>
+  </div>
+  <div class="card-body">
+    <h5>Users</h5>
+    <ul>
+      <li *ngFor="let u of users">{{u.userName}}</li>
+    </ul>
+  </div>

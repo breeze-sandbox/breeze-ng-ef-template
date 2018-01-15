@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Web", "Template.Web\Template.Web.csproj", "{4B4F540C-1577-4CE0-9855-C2A0E2A05066}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Data", "Template.Data\Template.Data.csproj", "{991F3E93-1B24-403E-BDB1-087294256CC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B4F540C-1577-4CE0-9855-C2A0E2A05066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B4F540C-1577-4CE0-9855-C2A0E2A05066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B4F540C-1577-4CE0-9855-C2A0E2A05066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B4F540C-1577-4CE0-9855-C2A0E2A05066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{991F3E93-1B24-403E-BDB1-087294256CC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{991F3E93-1B24-403E-BDB1-087294256CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{991F3E93-1B24-403E-BDB1-087294256CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{991F3E93-1B24-403E-BDB1-087294256CC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
